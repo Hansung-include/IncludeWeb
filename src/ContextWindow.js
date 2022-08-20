@@ -1,5 +1,6 @@
-import React from "react"
+import { React, useState } from "react"
 import { Provider, useSelector, useDispatch } from 'react-redux';
+import { Document, Page, pdfjs } from 'react-pdf';
 
 import "./ContextWindow.css"
 import reduer from "./DpwindowStore";
@@ -7,6 +8,8 @@ import activity from "./activity"
 
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const RouteBtn = (props) => {
     const dispatch = useDispatch()
@@ -53,6 +56,54 @@ const ActivityLog = (props) => {
     )
 } 
 
+const MemberList = () => {
+    const fileName = useSelector(state => { return state })
+    const [numPages, setNumPages] = useState(null);
+    const [pageNumber, setPageNumber] = useState(1);
+
+    function onDocumentLoadSuccess({ numPages }) {
+        setNumPages(numPages);
+        setPageNumber(1);
+    }
+    
+    function changePage(offset) {
+        setPageNumber(prevPageNumber => prevPageNumber + offset);
+    }
+    
+    function previousPage() {
+        changePage(-1);
+    }
+    
+    function nextPage() {
+        changePage(1);
+    }
+
+    return(
+        <div>
+            <Document file={fileName.memberFile} onLoadSuccess={onDocumentLoadSuccess}>
+                <Page pageNumber={pageNumber} />
+            </Document>
+            <div>
+                <p> Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'} </p>
+                <button
+                    type="button"
+                    disabled={pageNumber <= 1}
+                    onClick={previousPage}
+                >
+                Previous
+                </button>
+                <button
+                    type="button"
+                    disabled={pageNumber >= numPages}
+                    onClick={nextPage}
+                >
+                Next
+                </button>
+            </div>
+        </div>
+    )
+}
+
 const DisplayWindow = () => {
     const inform = useSelector(state => { return state })
     
@@ -64,6 +115,7 @@ const DisplayWindow = () => {
             }
             <hr />
             <h4>{inform.semester} 명단</h4>
+            <MemberList />
         </div>
     )
 }
