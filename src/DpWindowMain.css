@@ -1,0 +1,20 @@
+div .CardDp {
+    margin-top: 12px;
+    /* margin-left: 15px; */
+    margin-right: 25px;
+}
+
+div #btnPlace {
+    margin-top: 8px;
+}
+
+div #NoActivityLog {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+div #DpMain { 
+    display : flex;
+    justify-content : center
+}

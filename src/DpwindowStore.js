@@ -5,18 +5,17 @@ const store = (state, action) => {
         return {
             semester : "22-1",
             // memberFile : "./member/22-1_member.pdf",
-            memberFile : "src/member/22-1-member.pdf",
-            activityFile : "",
+            displayContents : "log"
         }
     }
 
     let newState = { ...state };
     if (action.type === "SET_SEMESTER") {
         newState.semester = action.newSemester;
-        newState.memberFile = "src/member/" + newState.semester + "-member.pdf";
-        // newState.activityFile = "activity/" + newState.semester + "_activity.json";
     }
-    
+    else if (action.type === "SET_DP") {
+        newState.displayContents = action.newContents
+    }
     return newState;
 }
 
