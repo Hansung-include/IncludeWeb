@@ -28,10 +28,6 @@ const DpWindow = () => {
         )
     }
 
-    const changeDp = (contents) => {
-        dispatch({type : "SET_DP", newContents : {contents}})
-    }
-
     return(
         <div>
             <div id="btnPlace">
@@ -44,7 +40,6 @@ const DpWindow = () => {
 
             <div id="DpMain">
             {
-                // is_in_contests() ? log.map((item, idx) => <MyCard log={item} idx={idx} key={idx}/>) : <NoActivityLog />
                 dp === "log" ? <DpLog /> : <DpMember />
             }
             {/* <DpLog /> */}
