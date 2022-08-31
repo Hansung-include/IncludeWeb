@@ -1,14 +1,11 @@
-import TopBar from "./TopBar";
-import BottomBar from "./BottomBar";
-import "./App.css";
-import Test from "./Menus/TestMenu1";
+import logo from './logo.svg';
+import './App.css';
+import Home from "./main/Home";
 
 function App() {
   return (
     <div className="App">
-      <TopBar />
-      <Test />
-      <BottomBar />
+      <Home/>
     </div>
   );
 }
