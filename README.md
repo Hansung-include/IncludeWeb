@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Main
+메인화면 위치는 src/main/home.js 사용하면 됩니다.
+
 ## Available Scripts
 
 In the project directory, you can run:
