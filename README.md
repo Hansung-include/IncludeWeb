@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Main
 메인화면 위치는 src/main/home.js 사용하면 됩니다.
+src 다 가져가서 home.js만 연결하시면 되요
 
 ## Available Scripts
 
