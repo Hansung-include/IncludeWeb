@@ -3,6 +3,8 @@ import BottomBar from "./BottomBar";
 import ContextWindow from './ContextWindow';
 import "./App.css";
 // import Test from "./Menus/TestMenu1";
+import logo from './logo.svg';
+import Home from "./main/Home";
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
       <ContextWindow />
       {/* <Test /> */}
       <BottomBar />
+      <Home/>
     </div>
   );
 }
