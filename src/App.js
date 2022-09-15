@@ -1,15 +1,13 @@
-import TopBar from './TopBar';
+import TopBar from "./TopBar";
 import BottomBar from "./BottomBar";
-import ContextWindow from './ContextWindow';
+import Main from "./main/Home";
 import "./App.css";
-// import Test from "./Menus/TestMenu1";
+import { Link, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
       <TopBar />
-      <ContextWindow />
-      {/* <Test /> */}
       <BottomBar />
     </div>
   );

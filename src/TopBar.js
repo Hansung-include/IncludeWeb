@@ -15,7 +15,8 @@ import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
 import { styled, alpha } from "@mui/material/styles";
-// import SearchIcon from "@mui/icons-material/Search";
+import Main from "./main/Home";
+import Contents from "./ContextWindow";
 
 const pages = ["Main", "Contents"];
 
@@ -29,21 +30,6 @@ const TopBar = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
-  const Search = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-      width: "auto",
-    },
-  }));
 
   const SearchIconWrapper = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 2),
@@ -140,7 +126,7 @@ const TopBar = () => {
               variant="h5"
               noWrap
               component="a"
-              href=""
+              href="/"
               sx={{
                 mr: 2,
                 display: { xs: "flex", md: "none" },
@@ -167,25 +153,15 @@ const TopBar = () => {
                 </NavLink>
               ))}
             </Box>
-            {/* <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search> */}
           </Toolbar>
         </Container>
       </AppBar>
 
-      {/* 추후 상단메뉴에 맞는 라우트 추가 */}
-      {/* <Routes>
-        <Route path="Menu1" element={<TestMenu1 />} />
-        <Route path="Menu2" element={<TestMenu2 />} />
-        <Route path="Menu3" element={<TestMenu3 />} />
-      </Routes> */}
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="Main" element={<Main />} />
+        <Route path="Contents" element={<Contents />} />
+      </Routes>
     </BrowserRouter>
   );
 };
